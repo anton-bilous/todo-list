@@ -38,3 +38,9 @@ def task_change_status(request, pk):
 
 class TagListView(generic.ListView):
     model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("tasks:tag-list")
