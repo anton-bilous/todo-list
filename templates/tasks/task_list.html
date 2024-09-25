@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 
+{% load tasks_tags %}
+
 {% block title %}
   <title>Task list</title>
+{% endblock %}
+
+{% block content %}
+  {% for task in task_list %}
+    <p>
+      {{ task.content }}
+      ({% if not task.is_done %}NOT {% endif %}DONE, created: {{ task.created_at }}, deadline: {{ task.deadline }},
+      tags: {{ task.tags.all|join_tags }})
+    </p>
+  {% empty %}
+    <p>No tasks</p>
+  {% endfor %}
 {% endblock %}
