@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block content %}
-  <a href="{% url 'tasks:tag-create' %}">New tag</a>
+  <a class="btn btn-primary" href="{% url 'tasks:tag-create' %}">New tag</a>
   {% if not tag_list %}
     <p>No tags</p>
   {% else %}
-    <table>
+    <table class="table">
       <tr>
         <th>Name</th>
         <th>Update</th>
