@@ -6,6 +6,7 @@ from .views import (
     TaskUpdateView,
     TaskDeleteView,
     task_change_status,
+    TagListView,
 )
 
 
@@ -21,4 +22,5 @@ urlpatterns = [
         task_change_status,
         name="task-change-status",
     ),
+    path("tags/", TagListView.as_view(), name="tag-list"),
 ]
