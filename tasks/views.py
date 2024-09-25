@@ -2,6 +2,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Task
+from .forms import TaskForm
 
 
 class TaskListView(generic.ListView):
@@ -11,5 +12,5 @@ class TaskListView(generic.ListView):
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskForm
     success_url = reverse_lazy("tasks:task-list")
