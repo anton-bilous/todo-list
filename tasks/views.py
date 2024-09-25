@@ -10,6 +10,12 @@ class TaskListView(generic.ListView):
     queryset = Task.objects.prefetch_related("tags")
 
 
+class TaskCreateView(generic.CreateView):
+    model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy("tasks:task-list")
+
+
 class TaskUpdateView(generic.UpdateView):
     model = Task
     form_class = TaskForm
