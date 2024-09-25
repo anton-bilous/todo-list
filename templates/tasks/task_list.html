@@ -12,6 +12,7 @@
       {{ task.content }}
       ({% if not task.is_done %}NOT {% endif %}DONE, created: {{ task.created_at }}, deadline: {{ task.deadline }},
       tags: {{ task.tags.all|join_tags }})
+      <a href="{% url 'tasks:task-update' task.id %}">Update</a>
     </p>
   {% empty %}
     <p>No tasks</p>
