@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-  <title>Update tag</title>
+  <title>{% if object %}Update{% else %}Create{% endif %} tag</title>
 {% endblock %}
 
 {% block content %}
