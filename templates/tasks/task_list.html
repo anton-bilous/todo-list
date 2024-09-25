@@ -15,6 +15,7 @@
       tags: {{ task.tags.all|join_tags }})
       <a href="{% url 'tasks:task-update' task.id %}">Update</a>
       <a href="{% url 'tasks:task-delete' task.id %}">Delete</a>
+      <a href="{% url 'tasks:task-change-status' task.id %}">{% if task.is_done %}Undo{% else %}Complete{% endif %}</a>
     </p>
   {% empty %}
     <p>No tasks</p>
