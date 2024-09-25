@@ -10,10 +10,14 @@
     <p>No tags</p>
   {% else %}
     <table>
-      <tr><th>Name</th></tr>
+      <tr>
+        <th>Name</th>
+        <th>Update</th>
+      </tr>
       {% for tag in tag_list %}
         <tr>
           <td>{{ tag.name }}</td>
+          <td><a href="{% url 'tasks:tag-update' tag.id %}">Update</a></td>
         </tr>
       {% endfor %}
     </table>
