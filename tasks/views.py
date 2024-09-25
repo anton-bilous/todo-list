@@ -2,7 +2,7 @@ from django.views import generic
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
 
-from .models import Task
+from .models import Task, Tag
 from .forms import TaskForm
 
 
@@ -34,3 +34,7 @@ def task_change_status(request, pk):
     task.save()
 
     return redirect(reverse("tasks:task-list"))
+
+
+class TagListView(generic.ListView):
+    model = Tag
