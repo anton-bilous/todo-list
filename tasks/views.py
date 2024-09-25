@@ -1,5 +1,6 @@
 from django.views import generic
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
+from django.shortcuts import redirect, get_object_or_404
 
 from .models import Task
 from .forms import TaskForm
@@ -25,3 +26,11 @@ class TaskUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("tasks:task-list")
+
+
+def task_change_status(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    task.is_done = not task.is_done
+    task.save()
+
+    return redirect(reverse("tasks:task-list"))
