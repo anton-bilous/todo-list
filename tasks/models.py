@@ -6,3 +6,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField(null=True, blank=True)
     is_done = models.BooleanField()
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=255)
