@@ -8,6 +8,6 @@
   <p>Really delete this task?</p>
   <form method="post", action="">
     {% csrf_token %}
-    <input type="submit" value="Delete">
+    <input type="submit" class="btn btn-danger" value="Delete">
   </form>
 {% endblock %}
