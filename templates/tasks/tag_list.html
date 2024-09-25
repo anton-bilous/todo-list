@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Tag list</title>
+{% endblock %}
+
+{% block content %}
+  {% if not tag_list %}
+    <p>No tags</p>
+  {% else %}
+    <table>
+      <tr><th>Name</th></tr>
+      {% for tag in tag_list %}
+        <tr>
+          <td>{{ tag.name }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}
