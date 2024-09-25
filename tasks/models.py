@@ -8,6 +8,9 @@ class Task(models.Model):
     is_done = models.BooleanField()
     tags = models.ManyToManyField("Tag", related_name="tasks")
 
+    def __str__(self) -> str:
+        return self.content
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
