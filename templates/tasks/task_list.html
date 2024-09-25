@@ -7,15 +7,15 @@
 {% endblock %}
 
 {% block content %}
-  <a href="{% url 'tasks:task-create' %}">New task</a>
+  <a class="btn btn-primary" href="{% url 'tasks:task-create' %}">New task</a>
   {% for task in task_list %}
     <p>
       {{ task.content }}
       ({% if not task.is_done %}NOT {% endif %}DONE, created: {{ task.created_at }}, deadline: {{ task.deadline }},
       tags: {{ task.tags.all|join_tags }})
-      <a href="{% url 'tasks:task-update' task.id %}">Update</a>
-      <a href="{% url 'tasks:task-delete' task.id %}">Delete</a>
-      <a href="{% url 'tasks:task-change-status' task.id %}">{% if task.is_done %}Undo{% else %}Complete{% endif %}</a>
+      <a class="btn btn-secondary" href="{% url 'tasks:task-update' task.id %}">Update</a>
+      <a class="btn btn-danger" href="{% url 'tasks:task-delete' task.id %}">Delete</a>
+      <a class="btn btn-{% if task.is_done %}danger{% else %}success{% endif %}" href="{% url 'tasks:task-change-status' task.id %}">{% if task.is_done %}Undo{% else %}Complete{% endif %}</a>
     </p>
   {% empty %}
     <p>No tasks</p>
